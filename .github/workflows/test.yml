@@ -10,6 +10,8 @@ jobs:
   setup: 
     uses: huynhthaianhhd/workflows-actions/.github/workflows/platform-npm-base.yml@main
     secrets: inherit
+    with: 
+      pnpm_version: '7.10.0'
 
   run: # make sure build/ci work properly
     runs-on: ubuntu-latest
