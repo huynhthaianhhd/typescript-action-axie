@@ -1,8 +1,7 @@
 
 name: 'build-test'
 on: # rebuild any PRs and main branch changes
-  pull_request: 
-    branches: ['main']
+ [push, pull_request]
 jobs:
   setup: 
     uses: huynhthaianhhd/workflows-actions/.github/workflows/platform-npm-base.yml@main
