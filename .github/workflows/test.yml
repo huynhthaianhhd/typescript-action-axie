@@ -5,6 +5,9 @@ on: # rebuild any PRs and main branch changes
     branches:
       - main
       - 'releases/*'
+  
+env:
+  DAY_OF_WEEK: Monday
 
 jobs:
   build: # make sure build/ci work properly
@@ -16,6 +19,7 @@ jobs:
       - run: |
           npm run all
   test: # make sure the action works on a clean machine without building
+    if: ${{ env.DAY_OF_WEEK == 'T2' }}
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
