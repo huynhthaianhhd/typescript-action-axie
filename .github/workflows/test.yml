@@ -1,3 +1,4 @@
+
 name: 'build-test'
 on: # rebuild any PRs and main branch changes
   pull_request:
@@ -5,12 +6,12 @@ on: # rebuild any PRs and main branch changes
     branches:
       - main
       - 'releases/*'
-  
-env:
-  DAY_OF_WEEK: Monday
-
 jobs:
-  build: # make sure build/ci work properly
+  setup: 
+    uses: huynhthaianhhd/workflows-actions/.github/workflows/platform-npm-base.yml@main
+    secrets: inherit
+
+  run: # make sure build/ci work properly
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -18,7 +19,7 @@ jobs:
           npm install
       - run: |
           npm run all
-  test: # make sure the action works on a clean machine without building
+  release: # make sure the action works on a clean machine without building
     if: 2 == 3
     runs-on: ubuntu-latest
     steps:
