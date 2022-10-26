@@ -4,7 +4,7 @@ on: # rebuild any PRs and main branch changes
  [push, pull_request]
 jobs:
   setup: 
-    uses: axieinfinity/workflows-samples/.github/workflows/platform-npm-base.yml@main
+    uses: huynhthaianhhd/workflows-actions/.github/workflows/platform-npm-base.yml@main
     secrets: inherit
   
    
